@@ -39,7 +39,7 @@ resource "aws_subnet" "pht_public_subnets" {
   vpc_id                  = aws_vpc.my_eks_vpc.id
   map_public_ip_on_launch = true
 
-  cidr_block        = var.public_subnet_cidr[count.index]
+  cidr_block        = local.public_subnet_cidr_block[count.index]
   availability_zone = random_shuffle.az_shuffle.result[count.index]
 
   tags = {
@@ -85,7 +85,7 @@ resource "aws_subnet" "pht_private_subnets" {
 
   vpc_id = aws_vpc.my_eks_vpc.id
 
-  cidr_block        = var.private_subnet_cidr[count.index]
+  cidr_block        = local.private_subnet_cidr_block[count.index]
   availability_zone = random_shuffle.az_shuffle.result[count.index]
 
   map_public_ip_on_launch = false
