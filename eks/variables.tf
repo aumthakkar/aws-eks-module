@@ -85,10 +85,12 @@ variable "auto_create_subnet_address" {
   type = bool
   description = "To get decision about auto creating subnet cidr addresses"
 }
+
 variable "public_subnet_cidr_addresses" {
   type = list(string)
   description = "If auto_create_subnet_address var is set to false, users to manually input subnet cidr address(es) in a list"
 }
+
 variable "private_subnet_cidr_addresses" {
   type = list(string)
   description = "If auto_create_subnet_address var is set to false, users to manually input subnet cidr address(es) in a list"
