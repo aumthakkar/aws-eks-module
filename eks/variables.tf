@@ -81,10 +81,6 @@ variable "cluster_security_groups" {}
 
 variable "name_prefix" {}
 
-variable "auto_create_subnet_address" {
-  type = bool
-  description = "To get decision about auto creating subnet cidr addresses"
-}
 
 variable "public_subnet_cidr_addresses" {
   type = list(string)

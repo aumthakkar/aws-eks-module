@@ -9,7 +9,8 @@ variable "aws_region" {}
 variable "org_name" {}
 variable "env_name" {}
 
-# variable "pvt_key" {
-#   ephemeral = true
-# }
+variable "auto_create_subnet_address" {
+  type = bool
+  description = "To get decision about auto creating subnet cidr addresses"
+}
 
