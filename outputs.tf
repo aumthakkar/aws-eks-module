@@ -46,9 +46,7 @@ output "cluster_oidc_issuer_url" {
 output "cluster_primary_security_group_id" {
   description = "The cluster primary security group ID created by the EKS cluster on 1.14 or later. Referred to as 'Cluster security group' in the EKS console."
   value       = module.eks_cluster.cluster_primary_security_group_id
-}
-
-/* 
+} 
 
 # EKS Node Group Outputs - Public
 output "node_group_public_id" {
@@ -75,7 +73,6 @@ output "public_subnets" {
   value = aws_subnet.pht_public_subnets[*].id
 }
 
-*/
 
 # EKS Node Group Outputs - Private
 output "node_group_private_id" {
@@ -131,12 +128,12 @@ output "efs_sg_ids" {
 
 # lbc Helm metadata outputs
 
-# output "lbc_helm_metadata" {
-#   description = "Metadata block outlining the status of the deployed release"
+output "lbc_helm_metadata" {
+  description = "Metadata block outlining the status of the deployed release"
 
-#   value = helm_release.lb_controller.metadata
+  value = helm_release.lb_controller.metadata
 
-# }
+}
 
 
 
