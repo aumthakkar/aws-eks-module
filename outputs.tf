@@ -2,22 +2,27 @@
 # === eks/outputs.tf ==== 
 
 output "cluster_id" {
+  description = "The name/id of the EKS Cluster"
   value = aws_eks_cluster.my_eks_cluster.id
 }
 
 output "cluster_endpoint" {
+  description = "The endpoint for your EKS Kubernetes API."
   value = aws_eks_cluster.my_eks_cluster.endpoint
 }
 
 output "cluster_arn" {
+  description = "The ARN of the EKS Cluster"
   value = aws_eks_cluster.my_eks_cluster.arn
 }
 
 output "cluster_cert_auth_data" {
+  description = "Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster"
   value = aws_eks_cluster.my_eks_cluster.certificate_authority[0].data
 }
 
 output "cluster_version" {
+  description = "The Kubernetes server version for the EKS cluster."
   value = aws_eks_cluster.my_eks_cluster.version
 }
 
@@ -26,10 +31,12 @@ output "cluster_security_group_id" {
 }
 
 output "cluster_iam_role_name" {
+  description = "IAM role name of the EKS cluster."
   value = aws_iam_role.eks_master_role.name
 }
 
 output "cluster_iam_role_arn" {
+  description = "IAM role ARN of the EKS cluster."
   value = aws_iam_role.eks_master_role.arn
 }
 
@@ -63,8 +70,6 @@ output "node_group_public_version" {
   description = "Public Node Group Kubernetes Version"
   value       = aws_eks_node_group.my_eks_public_nodegroup.version
 }
-
-
 
 # EKS Node Group Outputs - Private
 output "node_group_private_id" {
@@ -122,7 +127,7 @@ output "ebs_eks_addon_id" {
 }
 
 
-# === networking/outputs.tf === 
+# === vpc networking/outputs.tf === 
 
 output "vpc_id" {
   value = aws_vpc.my_eks_vpc.id
@@ -152,4 +157,12 @@ output "efs_sg_ids" {
 
 output "my_igw" {
   value = aws_internet_gateway.my_igw.id
+}
+
+# lbc Helm metadata outputs
+
+output "lbc_helm_metadata" {
+  description = "Metadata block outlining the status of the deployed release"
+  value = helm_release.lb_controller.metadata
+ 
 }
