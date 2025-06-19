@@ -11,7 +11,7 @@ locals {
 locals {
   cluster_security_groups = {
     public_sg = {
-      name        = var.cluster_public_security_group_name
+      name        = var.cluster_public_security_groups_name
       description = var.cluster_public_security_groups_desc
       tags = {
         Name = "public-sg"
