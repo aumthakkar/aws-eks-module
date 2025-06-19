@@ -74,8 +74,6 @@ variable "public_subnet_count" {}
 
 variable "private_subnet_count" {}
 
-
-variable "cluster_security_groups" {}
 variable "cluster_public_security_group_name" {}
 variable "cluster_public_security_groups_desc" {}
 
