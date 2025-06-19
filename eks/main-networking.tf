@@ -150,7 +150,7 @@ resource "aws_route" "private_route" {
 }
 
 resource "aws_security_group" "cluster_sg" {
-  for_each = var.cluster_security_groups
+  for_each = local.cluster_security_groups
 
   vpc_id = aws_vpc.my_eks_vpc.id
 

@@ -4,6 +4,7 @@
 # EKS Cluster Input Variables
 
 variable "cluster_name" {}
+variable "name_prefix" {}
 
 variable "eks_cluster_version" {
   description = "Kubernetes minor version to use for the EKS cluster (for example 1.21)"
@@ -75,21 +76,26 @@ variable "private_subnet_count" {}
 
 
 variable "cluster_security_groups" {}
+variable "cluster_public_security_group_name" {}
+variable "cluster_public_security_groups_desc" {}
 
-variable "name_prefix" {}
+variable "ssh_access_ips" {}
+
+variable "cluster_efs_security_group_name" {}
+variable "cluster_efs_security_group_desc" {}
 
 variable "auto_create_subnet_address" {
-  type = bool
+  type        = bool
   description = "To get decision about auto creating subnet cidr addresses"
 }
 
 variable "public_subnet_cidr_addresses" {
-  type = list(string)
+  type        = list(string)
   description = "If auto_create_subnet_address var is set to false, users to manually input subnet cidr address(es) in a list"
 }
 
 variable "private_subnet_cidr_addresses" {
-  type = list(string)
+  type        = list(string)
   description = "If auto_create_subnet_address var is set to false, users to manually input subnet cidr address(es) in a list"
 }
 
